@@ -7,6 +7,7 @@ PlayerInfo table structure
 ===========================
 
 PlayerInfo
+.relationship
 .displayName
 .online
 .characterInfo
@@ -15,6 +16,10 @@ PlayerInfo
   .zoneName
 
 ]]--
+
+PlayerInfo.RELATIONSHIP_FRIEND = 0
+PlayerInfo.RELATIONSHIP_GUILD  = 1
+PlayerInfo.RELATIONSHIP_GROUP  = 2
 
 local function GetCharacterInfo(characterInfoFunction)
     local hasCharacter, characterName, zoneName, classtype, alliance = characterInfoFunction()
@@ -27,9 +32,10 @@ local function GetCharacterInfo(characterInfoFunction)
     }
 end
 
-local function GenerateInfo(displayName, status, secsSinceLogoff, characterInfoFunction)
+local function GenerateInfo(relationship, displayName, status, secsSinceLogoff, characterInfoFunction)
     return
     {
+        relationship = relationship,
         displayName = displayName,
         online = playerStatus ~= PLAYER_STATUS_OFFLINE and secsSinceLogoff == 0,
         characterInfo = GetCharacterInfo(characterInfoFunction)
@@ -39,13 +45,13 @@ end
 function PlayerInfo.FromGuildMember(guildID, guildMemberIndex)
     local displayName, note, rankIndex, status, secsSinceLogoff = GetGuildMemberInfo(guildID, guildMemberIndex)
     local characterInfoFunction = function() return GetGuildMemberCharacterInfo(guildID, guildMemberIndex) end
-    return GenerateInfo(displayName, status, secsSinceLogoff, characterInfoFunction)
+    return GenerateInfo(RELATIONSHIP_GUILD, displayName, status, secsSinceLogoff, characterInfoFunction)
 end
 
 function PlayerInfo.FromFriend(friendIndex)
     local displayName, note, status, secsSinceLogoff = GetFriendInfo(friendIndex)
     local characterInfoFunction = function() return GetFriendCharacterInfo(friendIndex) end
-    return GenerateInfo(displayName, status, secsSinceLogoff, characterInfoFunction)
+    return GenerateInfo(RELATIONSHIP_FRIEND, displayName, status, secsSinceLogoff, characterInfoFunction)
 end
 
 Teleporter.PlayerInfo = PlayerInfo
