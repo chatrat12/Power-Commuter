@@ -14,9 +14,9 @@ function FriendUtils.GetAllFriendsInfo(condition)
     return result
 end
 
-function FriendUtils.GetAllOnlineFriendsInfo()
+function FriendUtils.GetAllOnlineFriendsInfo(condition)
     return FriendUtils.GetAllFriendsInfo(function(friendInfo)
-        return friendInfo.online
+        return friendInfo.online and (condition == null or condition(friendInfo))
     end)
 end
 

@@ -41,9 +41,9 @@ function GuildUtils.GetAllMembersInfo(condition)
 end
 
 -- Get All Online Members
-function GuildUtils.GetAllOnlineMembersInfo()
+function GuildUtils.GetAllOnlineMembersInfo(condition)
     return GuildUtils.GetAllMembersInfo(function(memberInfo)
-        return memberInfo.online
+        return memberInfo.online and (condition == null or condition(memberInfo))
     end)
 end
 
