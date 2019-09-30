@@ -31,4 +31,11 @@
             </Action>
         </Category>
     </Layer>
+    <Layer name="SI_KEYBINDINGS_LAYER_USER_INTERFACE_SHORTCUTS">
+        <Category name="Power Commuter 2">
+            <Action name="POWERCOMMUTER_WORLD_MAP_JUMP">
+                <Down>d("key down")</Down>
+            </Action>
+        </Category>
+    </Layer>
 </Bindings>

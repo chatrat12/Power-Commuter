@@ -15,6 +15,9 @@ local function OnAddOnLoaded(event, addonName)
         Teleport = PowerCommuter.Teleport
         PowerCommuter.UserSettings.Initialize()
         PowerCommuter.KeyBindings.Initialize()
+
+        PowerCommuter.WorldMapJump.Initialize()
+
     end
 end
 

@@ -36,12 +36,15 @@ local function GetCharacterInfo(characterInfoFunction)
 end
 
 local function GenerateInfo(relationship, displayName, status, secsSinceLogoff, characterInfoFunction)
+    local characterInfo = GetCharacterInfo(characterInfoFunction)
+    local online = playerStatus ~= PLAYER_STATUS_OFFLINE and secsSinceLogoff == 0 and characterInfo.hasCharacter
+
     return
     {
         relationship = relationship,
         displayName = displayName,
-        online = playerStatus ~= PLAYER_STATUS_OFFLINE and secsSinceLogoff == 0,
-        characterInfo = GetCharacterInfo(characterInfoFunction)
+        online = online,
+        characterInfo = characterInfo
     }
 end
 

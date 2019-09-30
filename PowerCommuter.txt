@@ -21,3 +21,5 @@ Teleport.lua
 KeyBindings.lua
 
 ZoneRadialMenu.lua
+GamepadMapDPadHack.lua
+WorldMapJump.lua

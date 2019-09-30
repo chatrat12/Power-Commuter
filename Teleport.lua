@@ -60,5 +60,12 @@ function Teleport.JumpToZone(zoneName)
     return nil
 end
 
+function Teleport.PossibleJumpTargetCount(zoneName)
+    local possibleJumpTargets = Teleport.GetAllPossibleJumpTargets()
+    return LuaUtils.Count(possibleJumpTargets, function(playerInfo)
+        return playerInfo.characterInfo.zoneName == zoneName
+    end)
+end
+
 
 PowerCommuter.Teleport = Teleport

@@ -47,7 +47,7 @@ local function InitSlashCommands()
 end
 
 local function InitBindingNames()
-
+    ZO_CreateStringId("SI_BINDING_NAME_POWERCOMMUTER_WORLD_MAP_JUMP", "World Map Jump")
     ZO_CreateStringId("SI_BINDING_NAME_POWERCOMMUTER_ZONE_RADIAL_MENU", "Zone Radial Menu")
     for i = 1, KeyBindings.BINDINGS_COUNT do
         ZO_CreateStringId(string.format("SI_BINDING_NAME_POWERCOMMUTER_JUMP_%s", i), 
