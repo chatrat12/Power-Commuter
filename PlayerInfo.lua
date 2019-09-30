@@ -45,13 +45,13 @@ end
 function PlayerInfo.FromGuildMember(guildID, guildMemberIndex)
     local displayName, note, rankIndex, status, secsSinceLogoff = GetGuildMemberInfo(guildID, guildMemberIndex)
     local characterInfoFunction = function() return GetGuildMemberCharacterInfo(guildID, guildMemberIndex) end
-    return GenerateInfo(RELATIONSHIP_GUILD, displayName, status, secsSinceLogoff, characterInfoFunction)
+    return GenerateInfo(PlayerInfo.RELATIONSHIP_GUILD, displayName, status, secsSinceLogoff, characterInfoFunction)
 end
 
 function PlayerInfo.FromFriend(friendIndex)
     local displayName, note, status, secsSinceLogoff = GetFriendInfo(friendIndex)
     local characterInfoFunction = function() return GetFriendCharacterInfo(friendIndex) end
-    return GenerateInfo(RELATIONSHIP_FRIEND, displayName, status, secsSinceLogoff, characterInfoFunction)
+    return GenerateInfo(PlayerInfo.RELATIONSHIP_FRIEND, displayName, status, secsSinceLogoff, characterInfoFunction)
 end
 
 Teleporter.PlayerInfo = PlayerInfo
