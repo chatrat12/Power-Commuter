@@ -2,12 +2,16 @@
 ## Author: Matt Thompson
 ## Version 0.1
 ## APIVersion: 100028
+## SavedVariables: Teleporter_SavedVariables
 
 Teleporter.lua
 
 LuaUtils.lua
+UserSettings.lua
+
 MapDatabase.lua
 PlayerInfo.lua
 GuildUtils.lua
 FriendUtils.lua
 Teleport.lua
+KeyBindings.lua

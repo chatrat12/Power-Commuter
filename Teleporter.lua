@@ -13,6 +13,8 @@ local function OnAddOnLoaded(event, addonName)
         GuildUtils = Teleporter.GuildUtils
         FriendUtils = Teleporter.FriendUtils
         Teleport = Teleporter.Teleport
+        Teleporter.UserSettings.Initialize()
+        Teleporter.KeyBindings.Initialize()
     end
 end
 
