@@ -1,5 +1,5 @@
-Teleporter = {}
-Teleporter.name = "Teleporter"
+PowerCommuter = {}
+PowerCommuter.name = "PowerCommuter"
 
 local MapDatabase
 local GuildUtils
@@ -8,13 +8,13 @@ local Teleport
 
 
 local function OnAddOnLoaded(event, addonName)
-    if addonName == Teleporter.name then
-        MapDatabase = Teleporter.MapDatabase
-        GuildUtils = Teleporter.GuildUtils
-        FriendUtils = Teleporter.FriendUtils
-        Teleport = Teleporter.Teleport
-        Teleporter.UserSettings.Initialize()
-        Teleporter.KeyBindings.Initialize()
+    if addonName == PowerCommuter.name then
+        MapDatabase = PowerCommuter.MapDatabase
+        GuildUtils = PowerCommuter.GuildUtils
+        FriendUtils = PowerCommuter.FriendUtils
+        Teleport = PowerCommuter.Teleport
+        PowerCommuter.UserSettings.Initialize()
+        PowerCommuter.KeyBindings.Initialize()
     end
 end
 
@@ -37,7 +37,7 @@ local function PrintTest()
 end
 
 SLASH_COMMANDS["/ttest"] = function(args)
-    for i = 1, Teleporter.KeyBindings.BINDINGS_COUNT do
+    for i = 1, PowerCommuter.KeyBindings.BINDINGS_COUNT do
         df("SI_BINDING_NAME_TELEPORTER_JUMP_%s", i)
     end
 end
@@ -53,4 +53,4 @@ SLASH_COMMANDS["/go"] = function(args)
     end
 end
 
-EVENT_MANAGER:RegisterForEvent(Teleporter.name, EVENT_ADD_ON_LOADED, OnAddOnLoaded)
+EVENT_MANAGER:RegisterForEvent(PowerCommuter.name, EVENT_ADD_ON_LOADED, OnAddOnLoaded)

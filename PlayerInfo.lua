@@ -57,4 +57,4 @@ function PlayerInfo.FromFriend(friendIndex)
     return GenerateInfo(PlayerInfo.RELATIONSHIP_FRIEND, displayName, status, secsSinceLogoff, characterInfoFunction)
 end
 
-Teleporter.PlayerInfo = PlayerInfo
+PowerCommuter.PlayerInfo = PlayerInfo

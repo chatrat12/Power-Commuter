@@ -1,12 +1,12 @@
-## Title: Teleporter
+## Title: PowerCommuter
 ## Author: Matt Thompson
 ## Version 0.1
 ## APIVersion: 100028
-## SavedVariables: Teleporter_SavedVariables
+## SavedVariables: PowerCommuter_SavedVariables
 
 bindings.xml
 
-Teleporter.lua
+PowerCommuter.lua
 
 LuaUtils.lua
 ESOUtils.lua

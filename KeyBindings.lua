@@ -1,5 +1,5 @@
-local Teleport = Teleporter.Teleport
-local ESOUtils = Teleporter.ESOUtils
+local Teleport = PowerCommuter.Teleport
+local ESOUtils = PowerCommuter.ESOUtils
 
 local KeyBindings = {}
 KeyBindings.BINDINGS_COUNT = 8
@@ -14,7 +14,7 @@ local function InitSlashCommands()
     SLASH_COMMANDS["/setkb"] = function(args)
         local zoneID = GetZoneId(GetCurrentMapZoneIndex())
         Bindings[1] = zoneID
-        d(Teleporter.UserSettings.KeyBindings[1])
+        d(PowerCommuter.UserSettings.KeyBindings[1])
     end
 
     SLASH_COMMANDS["/getkb"] = function(args)
@@ -38,7 +38,6 @@ local function InitBindingNames()
 end
 
 function KeyBindings.JumpKeybindDown(jumpKeybindIndex)
-    d(jumpKeybindIndex)
     if Bindings[jumpKeybindIndex] then
         local zoneName = GetZoneNameById(Bindings[jumpKeybindIndex])
 
@@ -56,9 +55,9 @@ function KeyBindings.JumpKeybindDown(jumpKeybindIndex)
 end
 
 function KeyBindings.Initialize()
-    Bindings = Teleporter.UserSettings.KeyBindings
+    Bindings = PowerCommuter.UserSettings.KeyBindings
     InitSlashCommands()
     InitBindingNames()
 end
 
-Teleporter.KeyBindings = KeyBindings
+PowerCommuter.KeyBindings = KeyBindings

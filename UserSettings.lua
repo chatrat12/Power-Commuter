@@ -11,11 +11,11 @@ local SerializedData =
 UserSettings.KeyBindings = nil
 
 function UserSettings.Initialize()
-    SerializedData = ZO_SavedVars:New("Teleporter_SavedVariables", 
+    SerializedData = ZO_SavedVars:New("PowerCommuter_SavedVariables", 
                                          UserSettings.SAVE_VESION, "", 
                                          SerializedData, nil)
 
 UserSettings.KeyBindings = SerializedData.KeyBindings
 end
 
-Teleporter.UserSettings = UserSettings
+PowerCommuter.UserSettings = UserSettings

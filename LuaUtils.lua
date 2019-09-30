@@ -19,4 +19,4 @@ function LuaUtils.Where(table, condition)
     return result
 end
 
-Teleporter.LuaUtils = LuaUtils
+PowerCommuter.LuaUtils = LuaUtils

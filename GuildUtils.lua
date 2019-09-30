@@ -1,6 +1,6 @@
 local GuildUtils = {}
-local LuaUtils = Teleporter.LuaUtils
-local PlayerInfo = Teleporter.PlayerInfo
+local LuaUtils = PowerCommuter.LuaUtils
+local PlayerInfo = PowerCommuter.PlayerInfo
 
 -- Get Members
 function GuildUtils.GetMembersInfo(guildID, condition)
@@ -47,4 +47,4 @@ function GuildUtils.GetAllOnlineMembersInfo(condition)
     end)
 end
 
-Teleporter.GuildUtils = GuildUtils
+PowerCommuter.GuildUtils = GuildUtils

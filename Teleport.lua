@@ -1,8 +1,8 @@
 local Teleport = {}
-local PlayerInfo = Teleporter.PlayerInfo
-local GuildUtils = Teleporter.GuildUtils
-local FriendUtils = Teleporter.FriendUtils
-local LuaUtils = Teleporter.LuaUtils
+local PlayerInfo = PowerCommuter.PlayerInfo
+local GuildUtils = PowerCommuter.GuildUtils
+local FriendUtils = PowerCommuter.FriendUtils
+local LuaUtils = PowerCommuter.LuaUtils
 
 function Teleport.GetAllPossibleJumpTargets()
     local onlineFriends = FriendUtils.GetAllOnlineFriendsInfo()
@@ -61,4 +61,4 @@ function Teleport.JumpToZone(zoneName)
 end
 
 
-Teleporter.Teleport = Teleport
+PowerCommuter.Teleport = Teleport

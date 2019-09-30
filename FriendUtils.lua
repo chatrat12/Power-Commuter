@@ -1,5 +1,5 @@
 local FriendUtils = {}
-local PlayerInfo = Teleporter.PlayerInfo
+local PlayerInfo = PowerCommuter.PlayerInfo
 
 function FriendUtils.GetAllFriendsInfo(condition)
     local result = {}
@@ -20,4 +20,4 @@ function FriendUtils.GetAllOnlineFriendsInfo(condition)
     end)
 end
 
-Teleporter.FriendUtils = FriendUtils
+PowerCommuter.FriendUtils = FriendUtils
