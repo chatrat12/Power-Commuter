@@ -1,12 +1,15 @@
 Teleporter = {}
 Teleporter.name = "Teleporter"
- 
+
+local MapDatabase
 local GuildUtils
 local FriendUtils
 local Teleport
 
+
 local function OnAddOnLoaded(event, addonName)
     if addonName == Teleporter.name then
+        MapDatabase = Teleporter.MapDatabase
         GuildUtils = Teleporter.GuildUtils
         FriendUtils = Teleporter.FriendUtils
         Teleport = Teleporter.Teleport
@@ -32,13 +35,18 @@ local function PrintTest()
 end
 
 SLASH_COMMANDS["/ttest"] = function(args)
-    local possibleTargets = Teleport.GetAllPossibleJumpTargets();
-    d(possibleTargets)
+    local maps = MapDatabase.GetMaps();
+    for i, map in ipairs(maps) do
+        df("%s %s %s", map.name, map.id, map.index)
+    end
 end
 
+
 SLASH_COMMANDS["/go"] = function(args)
-    if Teleport.JumpToZone(args) then
-        df("Jumping to %s", args)
+    local jumpResult = Teleport.JumpToZone(args)
+
+    if jumpResult then
+        df("Jumping to %s", jumpResult.characterInfo.zoneName)
     else
         df("Could not jump")
     end

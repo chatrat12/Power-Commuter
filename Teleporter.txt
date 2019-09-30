@@ -6,6 +6,7 @@
 Teleporter.lua
 
 LuaUtils.lua
+MapDatabase.lua
 PlayerInfo.lua
 GuildUtils.lua
 FriendUtils.lua

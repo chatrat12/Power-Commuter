@@ -24,17 +24,40 @@ function Teleport.JumpToPlayer(playerInfo)
     end
 end
 
--- Jump to Zone
--- Returns true if player was able to jump to zone.
-function Teleport.JumpToZone(zoneName)
-    local jumpTargets = Teleport.GetAllPossibleJumpTargets()
-    for i, possibleTarget in ipairs(jumpTargets) do
-        if possibleTarget.characterInfo.zoneName == zoneName then
-            Teleport.JumpToPlayer(possibleTarget)
-            return true
+local function SearchForExactZoneName(playersInfo, zoneNameLower)
+    for i, playerInfo in ipairs(playersInfo) do
+        if playerInfo.characterInfo.zoneNameLower == zoneNameLower then
+            return playerInfo
         end
     end
-    return false
+    return nil
+end
+
+local function SearchForFuzzyZoneName(playersInfo, zoneNameLower)
+    for i, playerInfo in ipairs(playersInfo) do
+        if string.find(playerInfo.characterInfo.zoneNameLower, zoneNameLower) then
+            return playerInfo
+        end
+    end
+    return nil
+end
+
+-- Jump to Zone
+-- Returns playerInfo is able to jump.
+function Teleport.JumpToZone(zoneName)
+    local jumpTargets = Teleport.GetAllPossibleJumpTargets()
+    zoneNameLower = string.lower(zoneName)
+
+    -- First search for exact match, then for fuzzy match.
+    local match = SearchForExactZoneName(jumpTargets, zoneNameLower) or SearchForFuzzyZoneName(jumpTargets, zoneNameLower)
+    
+    -- If match found, teleport to match and return it
+    if match then
+        Teleport.JumpToPlayer(match)
+        return match
+    end
+    -- No match found
+    return nil
 end
 
 

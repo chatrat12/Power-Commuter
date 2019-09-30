@@ -28,7 +28,10 @@ local function GetCharacterInfo(characterInfoFunction)
     {
         hasCharacter = hasCharacter,
         characterName = characterName,
-        zoneName = zoneName
+        zoneName = zoneName,
+        -- Cache the zone name in lower case
+        -- for searching
+        zoneNameLower = string.lower(zoneName)
     }
 end
 
