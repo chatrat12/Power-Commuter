@@ -10,28 +10,47 @@ function SetKeybinding(index, zoneName)
     d(zoneID)
 end
 
+local function GetIndexFromArgs(args)
+    if not args then return nil end
+    local index = tonumber(args)
+    if type(index) ~= "number" then return nil end
+    index = math.floor(index)
+    if index <= 0 or index > KeyBindings.BINDINGS_COUNT then
+        return nil
+    end
+    return index
+end
+
 local function InitSlashCommands()
     SLASH_COMMANDS["/setkb"] = function(args)
-        local zoneID = GetZoneId(GetCurrentMapZoneIndex())
-        Bindings[1] = zoneID
-        d(PowerCommuter.UserSettings.KeyBindings[1])
+        local index = GetIndexFromArgs(args)
+        
+        if index then
+            local zoneID = GetZoneId(GetCurrentMapZoneIndex())
+            Bindings[index] = zoneID
+            d("Binding set.")
+        else
+            d("Invalid bind index.")
+        end
     end
 
-    SLASH_COMMANDS["/getkb"] = function(args)
-        d(Bindings[1])
-    end
-
-    SLASH_COMMANDS["/gokb"] = function(args)
-        if Bindings[1] then
-            local zoneName = GetZoneNameById(Bindings[1])
-            Teleport.JumpToZone(zoneName)
+    SLASH_COMMANDS["/clearkb"] = function(args)
+        local index = GetIndexFromArgs(args)
+        
+        if index then
+            Bindings[index] = nil
+            d("Binding cleared.")
+        else
+            d("Invalid bind index.")
         end
     end
 end
 
 local function InitBindingNames()
+
+    ZO_CreateStringId("SI_BINDING_NAME_POWERCOMMUTER_ZONE_RADIAL_MENU", "Zone Radial Menu")
     for i = 1, KeyBindings.BINDINGS_COUNT do
-        ZO_CreateStringId(string.format("SI_BINDING_NAME_TELEPORTER_JUMP_%s", i), 
+        ZO_CreateStringId(string.format("SI_BINDING_NAME_POWERCOMMUTER_JUMP_%s", i), 
                           string.format("Jump to Zone %s", i))
 
     end
@@ -40,7 +59,6 @@ end
 function KeyBindings.JumpKeybindDown(jumpKeybindIndex)
     if Bindings[jumpKeybindIndex] then
         local zoneName = GetZoneNameById(Bindings[jumpKeybindIndex])
-
         local playerInfo = Teleport.JumpToZone(zoneName)
         
         if playerInfo then

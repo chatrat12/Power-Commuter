@@ -1,28 +1,32 @@
 <Bindings>
     <Layer name="SI_KEYBINDINGS_LAYER_GENERAL">
         <Category name="Power Commuter">
-            <Action name="TELEPORTER_JUMP_1">
+            <Action name="POWERCOMMUTER_ZONE_RADIAL_MENU">
+                <Down>PowerCommuter.ZoneRadialMenu.StartInteraction()</Down>
+                <Up>PowerCommuter.ZoneRadialMenu.StopInteraction()</Up>
+            </Action>
+            <Action name="POWERCOMMUTER_JUMP_1">
                 <Down>PowerCommuter.KeyBindings.JumpKeybindDown(1)</Down>
             </Action>
-            <Action name="TELEPORTER_JUMP_2">
+            <Action name="POWERCOMMUTER_JUMP_2">
                 <Down>PowerCommuter.KeyBindings.JumpKeybindDown(2)</Down>
             </Action>
-            <Action name="TELEPORTER_JUMP_3">
+            <Action name="POWERCOMMUTER_JUMP_3">
                 <Down>PowerCommuter.KeyBindings.JumpKeybindDown(3)</Down>
             </Action>
-            <Action name="TELEPORTER_JUMP_4">
+            <Action name="POWERCOMMUTER_JUMP_4">
                 <Down>PowerCommuter.KeyBindings.JumpKeybindDown(4)</Down>
             </Action>
-            <Action name="TELEPORTER_JUMP_5">
+            <Action name="POWERCOMMUTER_JUMP_5">
                 <Down>PowerCommuter.KeyBindings.JumpKeybindDown(5)</Down>
             </Action>
-            <Action name="TELEPORTER_JUMP_6">
+            <Action name="POWERCOMMUTER_JUMP_6">
                 <Down>PowerCommuter.KeyBindings.JumpKeybindDown(6)</Down>
             </Action>
-            <Action name="TELEPORTER_JUMP_7">
+            <Action name="POWERCOMMUTER_JUMP_7">
                 <Down>PowerCommuter.KeyBindings.JumpKeybindDown(7)</Down>
             </Action>
-            <Action name="TELEPORTER_JUMP_8">
+            <Action name="POWERCOMMUTER_JUMP_8">
                 <Down>PowerCommuter.KeyBindings.JumpKeybindDown(8)</Down>
             </Action>
         </Category>

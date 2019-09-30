@@ -5,6 +5,7 @@
 ## SavedVariables: PowerCommuter_SavedVariables
 
 bindings.xml
+Layouts/ZoneRadialMenu.xml
 
 PowerCommuter.lua
 
@@ -18,3 +19,5 @@ GuildUtils.lua
 FriendUtils.lua
 Teleport.lua
 KeyBindings.lua
+
+ZoneRadialMenu.lua

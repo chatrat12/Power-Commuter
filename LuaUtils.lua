@@ -9,13 +9,21 @@ end
 
 function LuaUtils.Where(table, condition)
     local result = {}
-
     for i, entry in ipairs(table) do
         if condition(entry) then
             table.insert(result, entry)
         end
     end
+    return result
+end
 
+function LuaUtils.Count(table, condition)
+    local result = 0
+    for i, entry in ipairs(table) do
+        if condition(entry) then
+            result = result + 1
+        end
+    end
     return result
 end
 
