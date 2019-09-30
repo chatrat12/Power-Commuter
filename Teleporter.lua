@@ -37,9 +37,8 @@ local function PrintTest()
 end
 
 SLASH_COMMANDS["/ttest"] = function(args)
-    local maps = MapDatabase.GetMaps();
-    for i, map in ipairs(maps) do
-        df("%s %s %s", map.name, map.id, map.index)
+    for i = 1, Teleporter.KeyBindings.BINDINGS_COUNT do
+        df("SI_BINDING_NAME_TELEPORTER_JUMP_%s", i)
     end
 end
 

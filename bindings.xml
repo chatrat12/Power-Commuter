@@ -1,0 +1,30 @@
+<Bindings>
+    <Layer name="SI_KEYBINDINGS_LAYER_GENERAL">
+        <Category name="Teleporter">
+            <Action name="TELEPORTER_JUMP_1">
+                <Down>Teleporter.KeyBindings.JumpKeybindDown(1)</Down>
+            </Action>
+            <Action name="TELEPORTER_JUMP_2">
+                <Down>Teleporter.KeyBindings.JumpKeybindDown(2)</Down>
+            </Action>
+            <Action name="TELEPORTER_JUMP_3">
+                <Down>Teleporter.KeyBindings.JumpKeybindDown(3)</Down>
+            </Action>
+            <Action name="TELEPORTER_JUMP_4">
+                <Down>Teleporter.KeyBindings.JumpKeybindDown(4)</Down>
+            </Action>
+            <Action name="TELEPORTER_JUMP_5">
+                <Down>Teleporter.KeyBindings.JumpKeybindDown(5)</Down>
+            </Action>
+            <Action name="TELEPORTER_JUMP_6">
+                <Down>Teleporter.KeyBindings.JumpKeybindDown(6)</Down>
+            </Action>
+            <Action name="TELEPORTER_JUMP_7">
+                <Down>Teleporter.KeyBindings.JumpKeybindDown(7)</Down>
+            </Action>
+            <Action name="TELEPORTER_JUMP_8">
+                <Down>Teleporter.KeyBindings.JumpKeybindDown(8)</Down>
+            </Action>
+        </Category>
+    </Layer>
+</Bindings>
