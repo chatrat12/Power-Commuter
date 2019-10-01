@@ -37,6 +37,14 @@ local function GetRadialMenu()
     end
 end
 
+local function RemapIndex(index)
+    index = 9 - index - 4
+    if index < 1 then
+        index = index + 8
+    end
+    return index
+end
+
 local function PopulateEntries(menu)
     local emptyIcon = "EsoUI/Art/Quickslots/quickslot_emptySlot.dds"
     local zoneIcon = "EsoUI/Art/Journal/journal_tabIcon_quest_up.dds"
@@ -51,11 +59,12 @@ local function PopulateEntries(menu)
 
     for i = 1, KeyBindings.BINDINGS_COUNT do
 
+        local mappedIndex = RemapIndex(i)
         local text = "Not Set"
         local icon = emptyIcon
         
-        if Bindings[i] then
-            local zoneName = GetZoneNameById(Bindings[i])
+        if Bindings[mappedIndex] then
+            local zoneName = GetZoneNameById(Bindings[mappedIndex])
             local playerCount = LuaUtils.Count(possibleJumpTargets, function(playerInfo)
                 return playerInfo.characterInfo.zoneName == zoneName
             end)
@@ -63,9 +72,8 @@ local function PopulateEntries(menu)
             icon = zoneIcon
         end
 
-        local currentIndex = i
         local jumpFunc = function()
-            KeyBindings.JumpKeybindDown(currentIndex)
+            KeyBindings.JumpKeybindDown(mappedIndex)
         end
         menu:AddEntry(text, icon, icon, jumpFunc, nil)
     end
