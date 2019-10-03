@@ -43,7 +43,7 @@ end
 
 local function RemoveButtons()
     if not IsInGamepadPreferredMode() then
-        KEYBIND_STRIP:AddKeybindButtonGroup(keyboardButtons)
+        KEYBIND_STRIP:RemoveKeybindButtonGroup(keyboardButtons)
     end
 end
 
@@ -56,7 +56,7 @@ local function OnMapUpdated()
 
     UpdateZoneCount()
     if not IsInGamepadPreferredMode() then
-        KEYBIND_STRIP:RemoveKeybindButtonGroup(keyboardButtons)
+        KEYBIND_STRIP:UpdateKeybindButtonGroup(keyboardButtons)
     end
 end
 
