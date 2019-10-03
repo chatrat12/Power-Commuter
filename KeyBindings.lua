@@ -5,9 +5,13 @@ local KeyBindings = {}
 KeyBindings.BINDINGS_COUNT = 8
 local Bindings
 
-function SetKeybinding(index, zoneName)
-    local zoneID = GetZoneID(GetCurrentMapZoneIndex())
-    d(zoneID)
+function KeyBindings.SetKeybindingToCurrentZone(index)
+    local zoneID = GetZoneId(GetCurrentMapZoneIndex())
+    Bindings[index] = zoneID
+end
+
+function KeyBindings.ClearKeybinding(index)
+    Bindings[index] = nil
 end
 
 local function GetIndexFromArgs(args)
@@ -23,11 +27,10 @@ end
 
 local function InitSlashCommands()
     SLASH_COMMANDS["/setkb"] = function(args)
-        local index = GetIndexFromArgs(args)
+        local index = SetKeybindingToCurrentZone(args)
         
         if index then
-            local zoneID = GetZoneId(GetCurrentMapZoneIndex())
-            Bindings[index] = zoneID
+            KeyBindings.SetKeybinding(index)
             d("Binding set.")
         else
             d("Invalid bind index.")
