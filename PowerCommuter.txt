@@ -5,7 +5,7 @@
 ## SavedVariables: PowerCommuter_SavedVariables
 
 bindings.xml
-Layouts/ZoneRadialMenu.xml
+Layouts/JumpToRadialMenu.xml
 
 PowerCommuter.lua
 
@@ -20,6 +20,10 @@ FriendUtils.lua
 Teleport.lua
 KeyBindings.lua
 
-ZoneRadialMenu.lua
-GamepadMapDPadHack.lua
+JumpToRadialMenu/JumpToRadialMenu.lua
+JumpToRadialMenu/JumpToRadialMenuControl.lua
+JumpToRadialMenu/KeybindStrip/JumpToRadialMenuKeybindStrip.lua
+JumpToRadialMenu/KeybindStrip/JumpToRadialMenuKeybindStripButtonFunctions.lua
+JumpToRadialMenu/KeybindStrip/JumpToRadialMenuKeybindStripButtons.lua
+
 WorldMapJump.lua

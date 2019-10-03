@@ -2,8 +2,8 @@
     <Layer name="SI_KEYBINDINGS_LAYER_GENERAL">
         <Category name="Power Commuter">
             <Action name="POWERCOMMUTER_ZONE_RADIAL_MENU">
-                <Down>PowerCommuter.ZoneRadialMenu.StartInteraction()</Down>
-                <Up>PowerCommuter.ZoneRadialMenu.StopInteraction()</Up>
+                <Down>PowerCommuter.JumpToRadialMenu.StartInteraction()</Down>
+                <Up>PowerCommuter.JumpToRadialMenu.StopInteraction()</Up>
             </Action>
             <Action name="POWERCOMMUTER_JUMP_1">
                 <Down>PowerCommuter.KeyBindings.JumpKeybindDown(1)</Down>
