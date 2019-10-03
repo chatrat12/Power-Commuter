@@ -15,7 +15,7 @@ end
 
 local function PopulateEntries(menu)
     local emptyIcon = "EsoUI/Art/Quickslots/quickslot_emptySlot.dds"
-    local zoneIcon = "EsoUI/Art/Journal/journal_tabIcon_quest_up.dds"
+    local zoneIcon = "EsoUI/Art/WorldMap/map_indexIcon_locations_up.dds"
 
     local possibleJumpTargets = Teleport.GetAllPossibleJumpTargets()
     local jumpShortcuts = PowerCommuter.UserSettings.KeyBindings
