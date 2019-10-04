@@ -21,8 +21,18 @@ PlayerInfo.RELATIONSHIP_FRIEND = 0
 PlayerInfo.RELATIONSHIP_GUILD  = 1
 PlayerInfo.RELATIONSHIP_GROUP  = 2
 
+local MAX_LEVEL = 50
+
+local function GetLevelRank(level, veteranLevel)
+    if level < MAX_LEVEL then
+        return level
+    else
+        return level + veteranLevel
+    end
+end
+
 local function GetCharacterInfo(characterInfoFunction)
-    local hasCharacter, characterName, zoneName, classtype, alliance = characterInfoFunction()
+    local hasCharacter, characterName, zoneName, classtype, alliance, level, veteranLevel = characterInfoFunction()
 
     return
     {
@@ -31,7 +41,8 @@ local function GetCharacterInfo(characterInfoFunction)
         zoneName = zoneName,
         -- Cache the zone name in lower case
         -- for searching
-        zoneNameLower = string.lower(zoneName)
+        zoneNameLower = string.lower(zoneName),
+        levelRank = GetLevelRank(level, veteranLevel)
     }
 end
 

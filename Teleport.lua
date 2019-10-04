@@ -24,8 +24,14 @@ function Teleport.JumpToPlayer(playerInfo)
     end
 end
 
+-- When searching for a player to jump to,
+-- sort by the player with the highest level
+local function playerOrder(t, a, b)
+    return t[b].characterInfo.levelRank < t[a].characterInfo.levelRank
+end
+
 local function SearchForExactZoneName(playersInfo, zoneNameLower)
-    for i, playerInfo in ipairs(playersInfo) do
+    for key, playerInfo in LuaUtils.SPairs(playersInfo, playerOrder) do
         if playerInfo.characterInfo.zoneNameLower == zoneNameLower then
             return playerInfo
         end
@@ -34,7 +40,7 @@ local function SearchForExactZoneName(playersInfo, zoneNameLower)
 end
 
 local function SearchForFuzzyZoneName(playersInfo, zoneNameLower)
-    for i, playerInfo in ipairs(playersInfo) do
+    for key, playerInfo in LuaUtils.SPairs(playersInfo, playerOrder) do
         if string.find(playerInfo.characterInfo.zoneNameLower, zoneNameLower) then
             return playerInfo
         end
@@ -68,7 +74,7 @@ function Teleport.PossibleJumpTargetCount(zoneName)
 end
 
 function Teleport.JumpToJumpShortcut(shortcut)
-    
+
 end
 
 PowerCommuter.Teleport = Teleport
