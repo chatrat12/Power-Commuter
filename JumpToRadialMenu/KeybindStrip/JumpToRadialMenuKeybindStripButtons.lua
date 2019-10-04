@@ -14,21 +14,26 @@ local function GetClearShortcut()
     end
 end
 
-PowerCommuter.JumpToRadialMenu.KeybindStrip.Buttons = 
+local buttons = 
 {
     {
         name = "Assign Location",
-        keybind = GetAssignShortcut(),
         callback = function() 
             PowerCommuter.JumpToRadialMenu.KeybindStrip.ButtonFunctions.AssignJumpShortcut()
         end
     },
     {
         name = "Clear Location",
-        keybind = GetClearShortcut(),
         callback = function() 
             PowerCommuter.JumpToRadialMenu.KeybindStrip.ButtonFunctions.ClearJumpShortcut()
         end
     },
     alignment = KEYBIND_STRIP_ALIGN_CENTER
 }
+
+PowerCommuter.JumpToRadialMenu.KeybindStrip.Buttons = {}
+function PowerCommuter.JumpToRadialMenu.KeybindStrip.Buttons.Get()
+    buttons[1].keybind = GetAssignShortcut()
+    buttons[2].keybind = GetClearShortcut()
+    return buttons
+end

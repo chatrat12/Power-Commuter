@@ -31,12 +31,12 @@ end
 function KS.Show()
     lastShownScene = GetNameOfSceneToShow()
     SCENE_MANAGER:Show(lastShownScene)
-    KEYBIND_STRIP:AddKeybindButtonGroup(PowerCommuter.JumpToRadialMenu.KeybindStrip.Buttons)
+    KEYBIND_STRIP:AddKeybindButtonGroup(PowerCommuter.JumpToRadialMenu.KeybindStrip.Buttons.Get())
     HideMouse()
 end
 
 function KS.Hide()
-    KEYBIND_STRIP:RemoveKeybindButtonGroup(PowerCommuter.JumpToRadialMenu.KeybindStrip.Buttons)
+    KEYBIND_STRIP:RemoveKeybindButtonGroup(PowerCommuter.JumpToRadialMenu.KeybindStrip.Buttons.Get())
     SCENE_MANAGER:Hide(lastShownScene)
     ShowMouse()
 end
