@@ -19,7 +19,10 @@ PlayerInfo/FriendUtils.lua
 UserSettings.lua
 Teleport.lua
 KeyBindings.lua
-WorldMapJump.lua
+
+WorldMapJump/WorldMapJump.lua
+WorldMapJump/WorldMapJumpEvents.lua
+WorldMapJump/WorldMapJumpButtons.lua
 
 JumpToRadialMenu/JumpToRadialMenu.lua
 JumpToRadialMenu/JumpToRadialMenuControl.lua
