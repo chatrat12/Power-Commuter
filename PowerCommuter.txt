@@ -30,6 +30,7 @@ WorldMapJump/WorldMapJumpButtons.lua
 
 JumpToRadialMenu/JumpToRadialMenu.lua
 JumpToRadialMenu/JumpToRadialMenuControl.lua
+JumpToRadialMenu/JumpToRadialMenuEntry.lua
 JumpToRadialMenu/KeybindStrip/JumpToRadialMenuKeybindStrip.lua
 JumpToRadialMenu/KeybindStrip/JumpToRadialMenuKeybindStripButtonFunctions.lua
 JumpToRadialMenu/KeybindStrip/JumpToRadialMenuKeybindStripButtons.lua
