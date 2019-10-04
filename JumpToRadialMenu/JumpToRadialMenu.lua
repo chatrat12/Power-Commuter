@@ -1,5 +1,6 @@
 ZRM = {}
-local KeyBindings = PowerCommuter.KeyBindings
+local Shortcuts = PowerCommuter.UserSettings.JumpShortcuts
+local SHORTCUT_TYPE = PowerCommuter.UserSettings.JumpShortcut.TYPE
 local Teleport = PowerCommuter.Teleport
 local LuaUtils = PowerCommuter.LuaUtils
 
@@ -18,25 +19,27 @@ local function PopulateEntries(menu)
     local zoneIcon = "EsoUI/Art/WorldMap/map_indexIcon_locations_up.dds"
 
     local possibleJumpTargets = Teleport.GetAllPossibleJumpTargets()
-    local jumpShortcuts = PowerCommuter.UserSettings.KeyBindings
 
-    for i = 1, KeyBindings.BINDINGS_COUNT do
+    for i = 1, Shortcuts.COUNT do
 
         local mappedIndex = RemapIndex(i)
         local text = "Not Set"
         local icon = emptyIcon
-        
-        if jumpShortcuts[mappedIndex] then
-            local zoneName = GetZoneNameById(jumpShortcuts[mappedIndex])
-            local playerCount = LuaUtils.Count(possibleJumpTargets, function(playerInfo)
-                return playerInfo.characterInfo.zoneName == zoneName
-            end)
-            text = string.format("%s (%s)", zoneName, playerCount)
-            icon = zoneIcon
+        local shortcut = Shortcuts.Data[mappedIndex]
+
+        if shortcut then
+            if shortcut.type == SHORTCUT_TYPE.ZONE then
+                local zoneName = GetZoneNameById(shortcut.data.zoneID)
+                local playerCount = LuaUtils.Count(possibleJumpTargets, function(playerInfo)
+                    return playerInfo.characterInfo.zoneName == zoneName
+                end)
+                text = string.format("%s (%s)", zoneName, playerCount)
+                icon = zoneIcon
+            end
         end
 
         local jumpFunc = function()
-            KeyBindings.JumpKeybindDown(mappedIndex)
+            PowerCommuter.KeyBindings.JumpKeybindDown(mappedIndex)
         end
 
         menu:AddEntry(text, icon, icon, jumpFunc, nil)

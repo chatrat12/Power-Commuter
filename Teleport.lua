@@ -67,5 +67,8 @@ function Teleport.PossibleJumpTargetCount(zoneName)
     end)
 end
 
+function Teleport.JumpToJumpShortcut(shortcut)
+    
+end
 
 PowerCommuter.Teleport = Teleport

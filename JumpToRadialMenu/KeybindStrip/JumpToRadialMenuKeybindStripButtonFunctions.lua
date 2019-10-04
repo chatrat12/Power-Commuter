@@ -1,22 +1,37 @@
 local BF = {}
+local Shortcuts = PowerCommuter.UserSettings.JumpShortcuts
+local Bold = PowerCommuter.ESOUtils.Bold
 
-function BF.AssignJumpToShortcut()
+function BF.AssignJumpShortcut()
     local menu = PowerCommuter.JumpToRadialMenu.Control:Get()
     if menu.selectedEntry then
+        -- Set shortcut
         local index = menu.selectedEntry.index
-        PowerCommuter.KeyBindings.SetKeybindingToCurrentZone(index)
-        df("Jump To %d set to: %s", index, GetZoneNameById(PowerCommuter.UserSettings.KeyBindings[index]))
+        Shortcuts.SetZoneShortcutFromCurrent(index)
+
+        -- Print message
+        shortcutName = string.format("Jump Shortcut %d", index)
+        zoneName = GetZoneNameById(Shortcuts.Data[index].data.zoneID)
+        df("%s set to: %s", Bold(shortcutName), Bold(zoneName))
+        
+        -- Close radial menu
         menu.selectedEntry = nil
         ZRM.StopInteraction()
     end
 end
 
-function BF.ClearJumpToShortcut()
+function BF.ClearJumpShortcut()
     local menu = PowerCommuter.JumpToRadialMenu.Control:Get()
     if menu.selectedEntry then
+        -- Clear shortcut
         local index = menu.selectedEntry.index
-        PowerCommuter.KeyBindings.ClearKeybinding(index)
-        df("Jump To %d cleared", index)
+        Shortcuts.ClearShortcut(index)
+
+        -- Print message
+        shortcutName = string.format("Jump Shortcut %d", index)
+        df("%s cleared", Bold(shortcutName))
+
+        -- Close radial menu
         menu.selectedEntry = nil
         ZRM.StopInteraction()
     end

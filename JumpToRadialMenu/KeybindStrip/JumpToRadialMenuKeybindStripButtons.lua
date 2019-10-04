@@ -20,14 +20,14 @@ PowerCommuter.JumpToRadialMenu.KeybindStrip.Buttons =
         name = "Assign Location",
         keybind = GetAssignShortcut(),
         callback = function() 
-            PowerCommuter.JumpToRadialMenu.KeybindStrip.ButtonFunctions.AssignJumpToShortcut()
+            PowerCommuter.JumpToRadialMenu.KeybindStrip.ButtonFunctions.AssignJumpShortcut()
         end
     },
     {
         name = "Clear Location",
         keybind = GetClearShortcut(),
         callback = function() 
-            PowerCommuter.JumpToRadialMenu.KeybindStrip.ButtonFunctions.ClearJumpToShortcut()
+            PowerCommuter.JumpToRadialMenu.KeybindStrip.ButtonFunctions.ClearJumpShortcut()
         end
     },
     alignment = KEYBIND_STRIP_ALIGN_CENTER

@@ -12,11 +12,15 @@ PowerCommuter.lua
 LuaUtils.lua
 ESOUtils.lua
 
+Settings/UserSettings.lua
+Settings/JumpShortcuts/JumpShortcut.lua
+Settings/JumpShortcuts/JumpShortcuts.lua
+Settings/JumpShortcuts/JumpShortcutSlashCommands.lua
+
 PlayerInfo/PlayerInfo.lua
 PlayerInfo/GuildUtils.lua
 PlayerInfo/FriendUtils.lua
 
-UserSettings.lua
 Teleport.lua
 KeyBindings.lua
 
