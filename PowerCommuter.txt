@@ -11,19 +11,18 @@ PowerCommuter.lua
 
 LuaUtils.lua
 ESOUtils.lua
-UserSettings.lua
 
-MapDatabase.lua
-PlayerInfo.lua
-GuildUtils.lua
-FriendUtils.lua
+PlayerInfo/PlayerInfo.lua
+PlayerInfo/GuildUtils.lua
+PlayerInfo/FriendUtils.lua
+
+UserSettings.lua
 Teleport.lua
 KeyBindings.lua
+WorldMapJump.lua
 
 JumpToRadialMenu/JumpToRadialMenu.lua
 JumpToRadialMenu/JumpToRadialMenuControl.lua
 JumpToRadialMenu/KeybindStrip/JumpToRadialMenuKeybindStrip.lua
 JumpToRadialMenu/KeybindStrip/JumpToRadialMenuKeybindStripButtonFunctions.lua
 JumpToRadialMenu/KeybindStrip/JumpToRadialMenuKeybindStripButtons.lua
-
-WorldMapJump.lua

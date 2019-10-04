@@ -71,7 +71,7 @@ function KeyBindings.JumpKeybindDown(jumpKeybindIndex)
         end
 
     else
-        df("%s Keybinding Not Set", ESOUtils.Bold(string.format("Jump to Zone %s", jumpKeybindIndex)))
+        df("%s Keybinding Not Set", ESOUtils.Bold(string.format("Jump to %s", jumpKeybindIndex)))
     end
 end
 
