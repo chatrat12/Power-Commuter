@@ -12,7 +12,7 @@ local function GetIndexFromArgs(args)
 end
 
 SLASH_COMMANDS["/pc_set"] = function(args)
-    local index = SetKeybindingToCurrentZone(args)
+    local index = GetIndexFromArgs(args)
     
     if index then
         PowerCommuter.UserSettings.JumpShortcuts.SetZoneShortcutFromCurrent(index)

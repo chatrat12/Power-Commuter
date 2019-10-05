@@ -10,6 +10,7 @@ local function PopulateEntries(menu)
     -- up player cout for zone
     ZRM.JumpTargetCache = Teleport.GetAllPossibleJumpTargets()
 
+    -- Add Entries
     for i = 1, Shortcuts.COUNT do
         ZRM.Entry.AddEntry(menu, i)
     end
