@@ -6,6 +6,7 @@ local Count = PowerCommuter.LuaUtils.Count
 -- Icons
 local emptyIcon = "EsoUI/Art/Quickslots/quickslot_emptySlot.dds"
 local zoneIcon = "EsoUI/Art/WorldMap/map_indexIcon_locations_up.dds"
+local houseIcon = "EsoUI/Art/WorldMap/map_indexIcon_housing_up.dds"
 
 -- Returns function to be called by entry.
 local function GetEntryFunction(shorctuIndex)
@@ -46,6 +47,23 @@ local function GetZoneEntryData(zoneID)
     }
 end
 
+local function GetOwnedHouseEntryData(houseID)
+    local houseInfo = GetCollectibleIdForHouse(houseID)
+    return
+    {
+        text = PowerCommuter.HouseUtils.GetHouseNameFromHouseID(houseID),
+        icon = houseIcon
+    }
+end
+
+local function GetNonOwnedHouseEntryData(houseOwner)
+    return
+    {
+        text = string.format("%s's House", houseOwner),
+        icon = houseIcon
+    }
+end
+
 function Entry.AddEntry(menu, entryIndex)
     -- Entry index to shortcut index
     local shortcutIndex = RemapIndex(entryIndex)
@@ -53,9 +71,14 @@ function Entry.AddEntry(menu, entryIndex)
     -- Entry data defaults
     local entryData = emptyEntryData
 
+
     if shortcut then
         if shortcut.type == SHORTCUT_TYPE.ZONE then -- Shortcut is zone shortcut
             entryData = GetZoneEntryData(shortcut.data.zoneID)
+        elseif shortcut.type == SHORTCUT_TYPE.OWNED_HOUSE then
+            entryData = GetOwnedHouseEntryData(shortcut.data.houseID)
+        elseif shortcut.type == SHORTCUT_TYPE.NON_OWNED_HOUSE then
+            entryData = GetNonOwnedHouseEntryData(shortcut.data.houseOwner)
         end
     end
 

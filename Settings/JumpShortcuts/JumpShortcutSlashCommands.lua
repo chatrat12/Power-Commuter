@@ -15,8 +15,7 @@ SLASH_COMMANDS["/pc_set"] = function(args)
     local index = GetIndexFromArgs(args)
     
     if index then
-        PowerCommuter.UserSettings.JumpShortcuts.SetZoneShortcutFromCurrent(index)
-        d("Binding set.")
+        PowerCommuter.UserSettings.JumpShortcuts.SetShortcutFromCurrentLocation(index)
     else
         d("Invalid bind index.")
     end
@@ -27,7 +26,6 @@ SLASH_COMMANDS["/pc_clear"] = function(args)
     
     if index then
         PowerCommuter.UserSettings.JumpShortcuts.ClearShortcut(index)
-        d("Binding cleared.")
     else
         d("Invalid bind index.")
     end

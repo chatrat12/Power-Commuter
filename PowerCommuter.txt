@@ -11,6 +11,7 @@ PowerCommuter.lua
 
 LuaUtils.lua
 ESOUtils.lua
+HouseUtils.lua
 
 Settings/UserSettings.lua
 Settings/JumpShortcuts/JumpShortcut.lua
