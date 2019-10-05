@@ -2,14 +2,12 @@ local KeyBindings = {}
 local Shortcuts = PowerCommuter.UserSettings.JumpShortcuts
 local ESOUtils = PowerCommuter.ESOUtils
 
-local function InitBindingNames()
-    ZO_CreateStringId("SI_BINDING_NAME_POWERCOMMUTER_WORLD_MAP_JUMP", "World Map Jump")
-    ZO_CreateStringId("SI_BINDING_NAME_POWERCOMMUTER_ZONE_RADIAL_MENU", "Zone Radial Menu")
-    for i = 1, Shortcuts.COUNT do
-        ZO_CreateStringId(string.format("SI_BINDING_NAME_POWERCOMMUTER_JUMP_%s", i), 
-                          string.format("Jump to Zone %s", i))
-
-    end
+-- Init Binding Names
+ZO_CreateStringId("SI_BINDING_NAME_POWERCOMMUTER_WORLD_MAP_JUMP", "World Map Jump")
+ZO_CreateStringId("SI_BINDING_NAME_POWERCOMMUTER_ZONE_RADIAL_MENU", "Zone Radial Menu")
+for i = 1, Shortcuts.COUNT do
+    ZO_CreateStringId(string.format("SI_BINDING_NAME_POWERCOMMUTER_JUMP_%s", i), 
+                      string.format("Jump to Zone %s", i))
 end
 
 function KeyBindings.JumpKeybindDown(shortcutIndex)
@@ -28,10 +26,6 @@ function KeyBindings.JumpKeybindDown(shortcutIndex)
     else -- Shorcut not set
         df("%s Not Set", ESOUtils.Bold(string.format("Jump to %s", shortcutIndex)))
     end
-end
-
-function KeyBindings.Initialize()
-    InitBindingNames()
 end
 
 PowerCommuter.KeyBindings = KeyBindings

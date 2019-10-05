@@ -4,7 +4,6 @@ PowerCommuter.name = "PowerCommuter"
 local function OnAddOnLoaded(event, addonName)
     if addonName == PowerCommuter.name then
         PowerCommuter.UserSettings.Initialize()
-        PowerCommuter.KeyBindings.Initialize()
         PowerCommuter.WorldMapJump.Initialize()
     end
 end
