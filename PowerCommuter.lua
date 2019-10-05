@@ -9,7 +9,7 @@ local function OnAddOnLoaded(event, addonName)
 end
 
 SLASH_COMMANDS["/go"] = function(args)
-    local jumpResult = Teleport.JumpToZone(args)
+    local jumpResult = PowerCommuter.Teleport.JumpToZone(args)
 
     if jumpResult then
         df("Jumping to %s", jumpResult.characterInfo.zoneName)
